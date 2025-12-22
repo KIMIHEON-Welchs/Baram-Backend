@@ -1,0 +1,30 @@
+[
+  {
+    "recordId": 10,
+    "sentenceContent": "동해물과 백두산이 마르고 닳도록",
+    "finalScore": 57.23,
+    "submissionDate": "2025-12-22T23:54:58.918909",
+    "imageUrl": "/files/2242e239-8111-44f3-b263-1d467f14907b_test.jpg"
+  },
+  {
+    "recordId": 9,
+    "sentenceContent": "동해물과 백두산이 마르고 닳도록",
+    "finalScore": 99.5,
+    "submissionDate": "2025-12-22T23:54:56.359993",
+    "imageUrl": "/files/8a295f38-5096-45c4-ac90-c9488467aeab_test.jpg"
+  },
+  {
+    "recordId": 8,
+    "sentenceContent": "동해물과 백두산이 마르고 닳도록",
+    "finalScore": 65.81,
+    "submissionDate": "2025-12-22T23:54:52.772316",
+    "imageUrl": "/files/64ee2a6f-2acb-47e0-b545-911d88f52fa8_test.jpg"
+  },
+  {
+    "recordId": 7,
+    "sentenceContent": "동해물과 백두산이 마르고 닳도록",
+    "finalScore": 98.65,
+    "submissionDate": "2025-12-22T23:47:07.966418",
+    "imageUrl": "/files/0b1246a1-d5c4-4a78-8b5d-41e3e319da63_test.jpg"
+  }
+]

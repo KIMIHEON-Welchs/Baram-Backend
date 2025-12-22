@@ -1,0 +1,92 @@
+### [변수 설정]
+@host = http://localhost:8080
+@sessionToken = 3c907f5d-795d-441d-b552-1fd7bfeef4bc
+
+# ==========================================
+# 1. 인증 (Public API - 토큰 필요 없음)
+# ==========================================
+
+### 1-1. 소셜 로그인 (유저 생성 및 세션 발급)
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "socialId": "test_social_id_123",
+  "loginType": "KAKAO"
+}
+###
+
+# ==========================================
+# 2. 문장 조회 (Secured API)
+# ==========================================
+
+### 2-1. [성공] 전체 문장 목록 조회
+GET {{host}}/api/sentences
+Authorization: Bearer {{sessionToken}}
+Accept: application/json
+
+### 2-2. [실패] 토큰 없이 조회 (403 기대)
+GET {{host}}/api/sentences
+Accept: application/json
+
+
+# ==========================================
+# 3. 기록 제출 및 조회 (Secured API)
+# ==========================================
+
+### 3-1. [성공] 손글씨 기록 제출
+POST {{host}}/api/records/submit
+Authorization: Bearer {{sessionToken}}
+Content-Type: multipart/form-data; boundary=webapp
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "sentenceId": 1,
+  "modelVersionId": 1,
+  "submissionMethod": "CAMERA"
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< ./test.jpg
+--webapp--
+
+### 3-2. [실패] 토큰 없이 제출 (403 기대)
+POST {{host}}/api/records/submit
+Content-Type: multipart/form-data; boundary=webapp
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{ "userId": 2, "sentenceId": 1 }
+--webapp--
+
+
+### 4-1. [성공] 내 기록 목록 조회
+GET {{host}}/api/records?userId=2
+Authorization: Bearer {{sessionToken}}
+Accept: application/json
+
+### 4-2. [실패] 토큰 없이 조회 (403 기대)
+GET {{host}}/api/records?userId=2
+Accept: application/json
+
+
+# ==========================================
+# 5. 피드백 조회 (Secured API)
+# ==========================================
+
+### 5-1. [성공] 상세 피드백 조회
+GET {{host}}/api/records/8/feedback
+Authorization: Bearer {{sessionToken}}
+Accept: application/json
+
+### 5-2. [실패] 토큰 없이 조회 (403 기대)
+GET {{host}}/api/records/8/feedback
+Accept: application/json

@@ -1,0 +1,26 @@
+[
+  {
+    "sentenceId": 1,
+    "content": "동해물과 백두산이 마르고 닳도록",
+    "category": "애국가",
+    "level": "BEGINNER"
+  },
+  {
+    "sentenceId": 2,
+    "content": "하느님이 보우하사 우리나라 만세",
+    "category": "애국가",
+    "level": "BEGINNER"
+  },
+  {
+    "sentenceId": 3,
+    "content": "나의 죽음을 적들에게 알리지 마라",
+    "category": "명언",
+    "level": "INTERMEDIATE"
+  },
+  {
+    "sentenceId": 4,
+    "content": "별을 노래하는 마음으로 모든 죽어가는 것을 사랑해야지",
+    "category": "시",
+    "level": "ADVANCED"
+  }
+]
