@@ -39,7 +39,7 @@ public class AuthService {
 
         Session session = Session.builder()
                 .sessionToken(token)
-                .user(user)
+                .userId(user.getUserId())
                 .expiresAt(LocalDateTime.now().plusDays(30)) // 30일 유효
                 .build();
 

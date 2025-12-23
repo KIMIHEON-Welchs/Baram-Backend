@@ -1,6 +1,6 @@
 ### [변수 설정]
 @host = http://localhost:8080
-@sessionToken = 3c907f5d-795d-441d-b552-1fd7bfeef4bc
+@sessionToken = d2f5ef56-a939-475a-9555-e62711ce4451
 
 # ==========================================
 # 1. 인증 (Public API - 토큰 필요 없음)
@@ -15,19 +15,6 @@ Content-Type: application/json
   "loginType": "KAKAO"
 }
 ###
-
-# ==========================================
-# 2. 문장 조회 (Secured API)
-# ==========================================
-
-### 2-1. [성공] 전체 문장 목록 조회
-GET {{host}}/api/sentences
-Authorization: Bearer {{sessionToken}}
-Accept: application/json
-
-### 2-2. [실패] 토큰 없이 조회 (403 기대)
-GET {{host}}/api/sentences
-Accept: application/json
 
 
 # ==========================================
@@ -44,10 +31,8 @@ Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
 {
-  "userId": 2,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
 }
 --webapp
 Content-Disposition: form-data; name="file"; filename="test.jpg"
@@ -55,7 +40,6 @@ Content-Type: image/jpeg
 
 < ./test.jpg
 --webapp--
-
 ### 3-2. [실패] 토큰 없이 제출 (403 기대)
 POST {{host}}/api/records/submit
 Content-Type: multipart/form-data; boundary=webapp
@@ -64,17 +48,19 @@ Content-Type: multipart/form-data; boundary=webapp
 Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
-{ "userId": 2, "sentenceId": 1 }
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
 --webapp--
 
-
-### 4-1. [성공] 내 기록 목록 조회
-GET {{host}}/api/records?userId=2
+###
+GET {{host}}/api/records
 Authorization: Bearer {{sessionToken}}
 Accept: application/json
 
-### 4-2. [실패] 토큰 없이 조회 (403 기대)
-GET {{host}}/api/records?userId=2
+###
+GET {{host}}/api/records
 Accept: application/json
 
 

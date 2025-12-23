@@ -1,7 +1,6 @@
 package com.example.Baram.domain.record;
 
 import com.example.Baram.domain.model.AnswerModel;
-import com.example.Baram.domain.sentence.SentenceLibrary;
 import com.example.Baram.domain.user.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,10 +28,6 @@ public class Record
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    // 하나의 문장에 대해 여러 기록이 생길 수 있음
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sentence_id", nullable = false)
-    private SentenceLibrary sentence;
 
     // 하나의 채점 모델로 여러 기록을 채점함
     @ManyToOne(fetch = FetchType.LAZY)
@@ -40,6 +35,8 @@ public class Record
     private AnswerModel answerModel;
 
     // --- 일반 필드 ---
+    @Column(columnDefinition = "TEXT")
+    private String sentence;
 
     @Column(nullable = false)
     private String submittedImageUrl; // 업로드된 이미지 경로(S3 URL 등)

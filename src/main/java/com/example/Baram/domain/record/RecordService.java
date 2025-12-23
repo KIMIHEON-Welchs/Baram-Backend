@@ -7,8 +7,6 @@ import com.example.Baram.domain.model.AnswerModel;
 import com.example.Baram.domain.model.AnswerModelRepository; // (없으면 만들어야 함)
 import com.example.Baram.domain.record.dto.RecordResponse;
 import com.example.Baram.domain.record.dto.RecordSubmitRequest;
-import com.example.Baram.domain.sentence.SentenceLibrary;
-import com.example.Baram.domain.sentence.SentenceLibraryRepository; // (없으면 만들어야 함)
 import com.example.Baram.domain.user.User;
 import com.example.Baram.domain.user.UserRepository;
 import com.example.Baram.domain.record.RecordSearchRepository;
@@ -29,48 +27,46 @@ public class RecordService
 {
 
     @Transactional
-    public Long submitRecord(MultipartFile file, RecordSubmitRequest request) throws IOException {
+    // 컨트롤러에서 토큰을 통해 추출한 userId를 파라미터로 넘겨준다고 가정합니다.
+    public Long submitRecord(Long userId, RecordSubmitRequest request, String fileName) {
 
-        // 1. 이미지 파일 로컬에 저장하기
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files"; // 저장할 경로
-        UUID uuid = UUID.randomUUID(); // 파일명 겹치지 않게 랜덤 이름 생성
-        String fileName = uuid + "_" + file.getOriginalFilename();
+        // 1. 유저 확인 (여전히 DB 조회가 필요합니다)
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 사용자입니다."));
 
-        File saveFile = new File(projectPath, fileName);
-        if (!saveFile.getParentFile().exists()) {
-            saveFile.getParentFile().mkdirs(); // 폴더 없으면 생성
-        }
-        file.transferTo(saveFile); // 실제 파일 저장 실행
+        // 2. [변경] Sentence, Model 조회 로직 삭제
+        // - 문장은 request에서 직접 String으로 가져옵니다.
+        // - 모델은 request의 font명을 그대로 사용합니다. [cite: 2025-12-23]
 
-        // 2. DB 조회 (유저, 문장, 모델 있는지 확인)
-        User user = userRepository.findById(request.getUserId())
-                .orElseThrow(() -> new IllegalArgumentException("없는 유저입니다."));
-        SentenceLibrary sentence = sentenceRepository.findById(request.getSentenceId())
-                .orElseThrow(() -> new IllegalArgumentException("없는 문장입니다."));
-        AnswerModel model = modelRepository.findById(request.getModelVersionId())
-                .orElseThrow(() -> new IllegalArgumentException("없는 모델입니다."));
+        AnswerModel model = modelRepository.findByModelName(request.getFont())
+                .orElseThrow(() -> new IllegalArgumentException("해당 폰트 모델을 찾을 수 없습니다: " + request.getFont()));
 
         // 3. Record 엔티티 생성 및 저장
         Record record = Record.builder()
                 .user(user)
-                .sentence(sentence)
-                .answerModel(model)
-                .submittedImageUrl("/files/" + fileName) // 나중에 접근할 URL 경로
-                .submissionMethod(request.getSubmissionMethod())
-                .analysisStatus(AnalysisStatus.PENDING) // 일단 '대기중'으로 저장
-                .confirmedTextFinal("") // 아직 분석 전이라 빈 값
+                .answerModel(model)          // [변경] modelVersionId 대신 font 저장
+                .sentence(request.getSentence())  // [변경] sentenceId 대신 직접 텍스트 저장
+                .submittedImageUrl("/files/" + fileName)
+                .submissionMethod(SubmissionMethod.CANVAS) // "직접 그리기" 고정 또는 request 활용
+                .analysisStatus(AnalysisStatus.PENDING)
+                .confirmedTextFinal("")
                 .build();
 
         Record savedRecord = recordRepository.save(record);
 
-        Feedback feedback = processMockAnalysis(savedRecord);
+        // 4. [변경 예정] 상세 분석 로직 (Feedback 4분할 반영 필요)
+        // - 이 부분은 곧 만드실 Shape, Position, Spacing, TiltFeedback 엔티티로 쪼개야 합니다. [cite: 2025-12-23]
+        // - 지금은 임시로 기존 Mock 로직을 유지하거나 주석 처리합니다.
+        processMockAnalysis(savedRecord);
 
+        // 5. Elasticsearch 동기화 (RecordDocument)
         RecordDocument esDoc = RecordDocument.builder()
-                .id(savedRecord.getRecordId().toString()) // DB ID와 동기화
+                .id(savedRecord.getRecordId().toString())
                 .userId(user.getUserId())
-                .sentenceContent(sentence.getContent()) // 문장 내용 복사
+                .sentenceContent(savedRecord.getSentence()) // [변경] 엔티티에서 직접 텍스트 복사
                 .recognizedText(savedRecord.getRecognizedTextHtr())
-                .feedbackTip(feedback.getImprovementTip()) // 피드백 내용 복사
+                // 피드백 팁은 4분할된 피드백 중 대표 팁을 넣거나 통합 로직 필요 [cite: 2025-12-18, 2025-12-23]
+                .feedbackTip("분석 결과가 생성되었습니다.")
                 .score(savedRecord.getFinalScore())
                 .submittedAt(savedRecord.getSubmissionDate())
                 .build();
@@ -79,6 +75,7 @@ public class RecordService
 
         return savedRecord.getRecordId();
     }
+
 
     // [AI 연동 시 변경 포인트]
     // 지금은 이 메소드가 내부에서 가짜 점수를 만들지만,
@@ -116,7 +113,7 @@ public class RecordService
         // (3) 결과 DB 반영 (이 부분은 유지됨, 변수만 진짜로 교체)
         record.setFinalScore(randomScore);
         record.setAnalysisStatus(AnalysisStatus.COMPLETED);
-        record.setRecognizedTextHtr(record.getSentence().getContent());
+        record.setRecognizedTextHtr(record.getSentence());
 
         recordRepository.save(record);
 
@@ -156,8 +153,7 @@ public class RecordService
 
     private final RecordRepository recordRepository;
     private final UserRepository userRepository;
-    private final SentenceLibraryRepository sentenceRepository;
     private final AnswerModelRepository modelRepository;
     private final FeedbackRepository feedbackRepository;
-    private final  RecordSearchRepository recordSearchRepository;
+    private final RecordSearchRepository recordSearchRepository;
 }

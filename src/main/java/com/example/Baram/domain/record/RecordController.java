@@ -1,16 +1,25 @@
 package com.example.Baram.domain.record;
 
+import com.example.Baram.domain.auth.Session;
+import com.example.Baram.domain.auth.SessionRepository;
 import com.example.Baram.domain.feedback.dto.FeedbackResponse;
 import com.example.Baram.domain.record.dto.RecordResponse;
 import com.example.Baram.domain.record.dto.RecordSubmitRequest;
+import com.example.Baram.domain.user.User;
+
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,26 +27,32 @@ import java.util.List;
 public class RecordController
 {
 
-    // POST: localhost:8080/api/records/submit
-    // Content-Type: multipart/form-data
+    // 1. 손글씨 기록 제출
     @PostMapping(value = "/submit", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<String> submitRecord(
-            @RequestPart("file") MultipartFile file,      // 이미지 파일
-            @RequestPart("data") RecordSubmitRequest request // JSON 데이터
+    public ResponseEntity<?> submitRecord(
+            @AuthenticationPrincipal User user,
+            @RequestPart("file") MultipartFile file,
+            @RequestPart("data") RecordSubmitRequest request
     ) {
-        try {
-            Long recordId = recordService.submitRecord(file, request);
-            return ResponseEntity.ok("기록 저장 성공! ID: " + recordId);
-        } catch (IOException e) {
-            return ResponseEntity.internalServerError().body("파일 저장 실패: " + e.getMessage());
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("인증 정보가 없습니다.");
         }
-    }
-    // domain.record.RecordController.java
+        Long userId = user.getUserId();
 
-    // 1. 내 전체 기록 조회 (요약 리스트)
-// GET: localhost:8080/api/records?userId=1
+        // 인자 순서: userId, DTO, 파일명 [cite: 2025-12-23]
+        Long recordId = recordService.submitRecord(userId, request, file.getOriginalFilename());
+        return ResponseEntity.ok("기록 저장 성공! ID: " + recordId);
+    }
+
+    // 2. 내 전체 기록 조회 (요약 리스트)
     @GetMapping
-    public ResponseEntity<List<RecordResponse>> getMyRecords(@RequestParam Long userId) {
+    public ResponseEntity<?> getMyRecords(@RequestHeader("Authorization") String bearerToken) {
+        String token = bearerToken.substring(7);
+
+        Long userId = sessionRepository.findBySessionToken(token)
+                .map(Session::getUserId)
+                .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 세션토큰입니다."));
+
         List<RecordResponse> records = recordService.getUserRecords(userId);
         return ResponseEntity.ok(records);
     }
@@ -52,4 +67,5 @@ public class RecordController
 
 
     private final RecordService recordService;
+    private final SessionRepository sessionRepository;
 }

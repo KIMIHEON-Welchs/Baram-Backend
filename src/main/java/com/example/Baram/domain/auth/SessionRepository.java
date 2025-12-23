@@ -8,5 +8,5 @@ public interface SessionRepository extends JpaRepository<Session, String> {
     Optional<Session> findBySessionToken(String sessionToken);
 
     // 특정 유저의 기존 세션 삭제 시 사용 (중복 로그인 방지 등)
-    void deleteByUser_UserId(Long userId);
+    void deleteByUserId(Long userId);
 }

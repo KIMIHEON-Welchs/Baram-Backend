@@ -18,7 +18,7 @@ public class RecordResponse {
     public static RecordResponse from(Record record) {
         return RecordResponse.builder()
                 .recordId(record.getRecordId())
-                .sentenceContent(record.getSentence().getContent())
+                .sentenceContent(record.getSentence())
                 .finalScore(record.getFinalScore())
                 .submissionDate(record.getSubmissionDate())
                 .imageUrl(record.getSubmittedImageUrl())

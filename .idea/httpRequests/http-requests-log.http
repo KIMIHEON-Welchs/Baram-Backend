@@ -1,20 +1,19 @@
 POST http://localhost:8080/api/records/submit
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
 Content-Type: multipart/form-data; boundary=webapp
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 1817559
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
 
 --webapp
 Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
 {
-  "userId": 2,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
 }
 --webapp
 Content-Disposition: form-data; name="file"; filename="test.jpg"
@@ -23,120 +22,26 @@ Content-Type: image/jpeg
 < C:\Users\kimih\Downloads\Baram\Baram\test.jpg
 --webapp--
 
-<> 2025-12-23T034111.200.txt
+<> 2025-12-24T044621.200.txt
 
 ###
 
 POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
 Content-Type: multipart/form-data; boundary=webapp
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 190
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{ "userId": 2, "sentenceId": 1 }
---webapp--
-
-###
-
-GET http://localhost:8080/api/records?userId=2
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-<> 2025-12-23T031332.200.json
-
-###
-
-GET http://localhost:8080/api/records?userId=1
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-<> 2025-12-23T031323.200.json
-
-###
-
-GET http://localhost:8080/api/records?userId=3
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/records?userId=2
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/records?userId=3
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/records/8/feedback
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-<> 2025-12-23T030748.200.json
-
-###
-
-GET http://localhost:8080/api/records/8/feedback
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/records?userId=2
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-<> 2025-12-23T030733.200.json
-
-###
-
-GET http://localhost:8080/api/records?userId=2
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-POST http://localhost:8080/api/records/submit
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-content-length: 1817559
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817549
 
 --webapp
 Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
 {
-  "userId": 2,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
 }
 --webapp
 Content-Disposition: form-data; name="file"; filename="test.jpg"
@@ -145,7 +50,61 @@ Content-Type: image/jpeg
 < C:\Users\kimih\Downloads\Baram\Baram\test.jpg
 --webapp--
 
-<> 2025-12-23T030709.200.txt
+<> 2025-12-24T044505.401.txt
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+<> 2025-12-24T044501.401.txt
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
 
 ###
 
@@ -154,31 +113,460 @@ Content-Type: multipart/form-data; boundary=webapp
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 190
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 244
 
 --webapp
 Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
-{ "userId": 2, "sentenceId": 1 }
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
 --webapp--
 
 ###
 
-GET http://localhost:8080/api/sentences
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Accept: application/json
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
 
-<> 2025-12-23T030650.200.json
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+<> 2025-12-24T041207.200.txt
 
 ###
 
-GET http://localhost:8080/api/sentences
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+<> 2025-12-24T041123.200.txt
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 244
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+GET http://localhost:8080/api/records
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
 Accept: application/json
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+<> 2025-12-24T040604.200.json
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+GET http://localhost:8080/api/records/8/feedback
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+<> 2025-12-24T035337.200.json
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 244
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp--
+
+###
+
+GET http://localhost:8080/api/records
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+<> 2025-12-24T034946.200.json
+
+###
+
+GET http://localhost:8080/api/records
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+###
+
+GET http://localhost:8080/api/records/8/feedback
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+<> 2025-12-24T034941.200.json
+
+###
+
+GET http://localhost:8080/api/records/8/feedback
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
 ###
 
@@ -188,59 +576,33 @@ Content-Length: 62
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
 {
   "socialId": "test_social_id_123",
   "loginType": "KAKAO"
 }
 
-<> 2025-12-23T030624.200.json
-
-###
-
-GET http://localhost:8080/api/sentences
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-<> 2025-12-23T025404.200.json
-
-###
-
-GET http://localhost:8080/api/sentences
-Authorization: Bearer 3c907f5d-795d-441d-b552-1fd7bfeef4bc
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-<> 2025-12-23T025257.200.json
-
-###
-
-GET http://localhost:8080/api/sentences
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
+<> 2025-12-24T034935.200.json
 
 ###
 
 POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
 Content-Type: multipart/form-data; boundary=webapp
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 1817559
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
 
 --webapp
 Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
 {
-  "userId": 1,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
 }
 --webapp
 Content-Disposition: form-data; name="file"; filename="test.jpg"
@@ -248,88 +610,6 @@ Content-Type: image/jpeg
 
 < C:\Users\kimih\Downloads\Baram\Baram\test.jpg
 --webapp--
-
-###
-
-POST http://localhost:8080/api/records/submit
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-content-length: 1817559
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{
-  "userId": 1,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
-}
---webapp
-Content-Disposition: form-data; name="file"; filename="test.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
---webapp--
-
-###
-
-GET http://localhost:8080/api/records/8/feedback
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/records?userId=1
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/sentences
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/sentences
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/sentences
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/sentences
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/sentences
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-###
-
-GET http://localhost:8080/api/sentences
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
 
 ###
 
@@ -339,31 +619,239 @@ Content-Length: 62
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
 {
   "socialId": "test_social_id_123",
   "loginType": "KAKAO"
 }
 
-<> 2025-12-23T023300.200.json
+<> 2025-12-24T034702.200.json
 
 ###
 
-GET http://localhost:8080/api/sentences?category=명언
+GET http://localhost:8080/api/records
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
 Accept: application/json
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
-<> 2025-12-23T002218.200.json
+<> 2025-12-24T034658.200.json
 
 ###
 
-GET http://localhost:8080/api/sentences
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+GET http://localhost:8080/api/records
 Accept: application/json
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
-<> 2025-12-23T002204.200.json
+###
+
+GET http://localhost:8080/api/records
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+<> 2025-12-24T034306.200.json
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817587
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요.",
+  "submissionMethod": "CANVAS"
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 244
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817587
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요.",
+  "submissionMethod": "CANVAS"
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+Content-Length: 62
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+{
+  "socialId": "test_social_id_123",
+  "loginType": "KAKAO"
+}
+
+<> 2025-12-24T034230.200.json
 
 ###
 
@@ -371,128 +859,37 @@ GET http://localhost:8080/api/records/8/feedback
 Accept: application/json
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
-
-<> 2025-12-22T235536.200.json
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
 ###
 
-GET http://localhost:8080/api/records?userId=1
+GET http://localhost:8080/api/records/8/feedback
+Authorization: Bearer dcf28580-fd9f-40cc-93a9-32c3788f2b27
 Accept: application/json
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
-<> 2025-12-22T235502.200.json
-
-###
-
-POST http://localhost:8080/api/records/submit
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-content-length: 1817559
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{
-  "userId": 1,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
-}
---webapp
-Content-Disposition: form-data; name="file"; filename="test.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
---webapp--
-
-<> 2025-12-22T235459.200.txt
+<> 2025-12-24T032746.200.json
 
 ###
 
-POST http://localhost:8080/api/records/submit
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-content-length: 1817559
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{
-  "userId": 1,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
-}
---webapp
-Content-Disposition: form-data; name="file"; filename="test.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
---webapp--
-
-<> 2025-12-22T235456.200.txt
-
-###
-
-POST http://localhost:8080/api/records/submit
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-content-length: 1817556
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{
-  "userId": 1,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
-}
---webapp
-Content-Disposition: form-data; name="file"; filename="test.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
---webapp--
-
-<> 2025-12-22T235453.200.txt
-
-###
-
-GET http://localhost:8080/api/records/7/feedback
+GET http://localhost:8080/api/records
 Accept: application/json
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
-
-<> 2025-12-22T235416.200.json
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
 ###
 
-GET http://localhost:8080/api/records/1/feedback
+GET http://localhost:8080/api/records
+Authorization: Bearer dcf28580-fd9f-40cc-93a9-32c3788f2b27
 Accept: application/json
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
-<> 2025-12-22T235354.500.json
-
-###
-
-GET http://localhost:8080/api/records?userId=1
-Accept: application/json
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-
-<> 2025-12-22T235024.200.json
+<> 2025-12-24T032740.200.json
 
 ###
 
@@ -501,45 +898,38 @@ Content-Type: multipart/form-data; boundary=webapp
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 1817559
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 244
 
 --webapp
 Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
 {
-  "userId": 1,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
 }
---webapp
-Content-Disposition: form-data; name="file"; filename="test.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
 --webapp--
-
-<> 2025-12-22T234708.200.txt
 
 ###
 
 POST http://localhost:8080/api/records/submit
+Authorization: Bearer dcf28580-fd9f-40cc-93a9-32c3788f2b27
 Content-Type: multipart/form-data; boundary=webapp
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 1817559
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817587
 
 --webapp
 Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
 {
-  "userId": 1,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요.",
+  "submissionMethod": "CANVAS"
 }
 --webapp
 Content-Disposition: form-data; name="file"; filename="test.jpg"
@@ -548,26 +938,42 @@ Content-Type: image/jpeg
 < C:\Users\kimih\Downloads\Baram\Baram\test.jpg
 --webapp--
 
-<> 2025-12-22T233351.200.txt
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+Content-Length: 62
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+{
+  "socialId": "test_social_id_123",
+  "loginType": "KAKAO"
+}
+
+<> 2025-12-24T032702.200.json
 
 ###
 
 POST http://localhost:8080/api/records/submit
+Authorization: Bearer 2db26b33-531b-41c2-ad98-0bb589cb0a01
 Content-Type: multipart/form-data; boundary=webapp
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 1817559
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817587
 
 --webapp
 Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
 {
-  "userId": 1,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요.",
+  "submissionMethod": "CANVAS"
 }
 --webapp
 Content-Disposition: form-data; name="file"; filename="test.jpg"
@@ -575,27 +981,25 @@ Content-Type: image/jpeg
 
 < C:\Users\kimih\Downloads\Baram\Baram\test.jpg
 --webapp--
-
-<> 2025-12-18T021150.200.txt
 
 ###
 
 POST http://localhost:8080/api/records/submit
+Authorization: Bearer 2db26b33-531b-41c2-ad98-0bb589cb0a01
 Content-Type: multipart/form-data; boundary=webapp
 User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 1817559
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
 
 --webapp
 Content-Disposition: form-data; name="data"
 Content-Type: application/json
 
 {
-  "userId": 1,
-  "sentenceId": 1,
-  "modelVersionId": 1,
-  "submissionMethod": "CAMERA"
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
 }
 --webapp
 Content-Disposition: form-data; name="file"; filename="test.jpg"
@@ -604,7 +1008,31 @@ Content-Type: image/jpeg
 < C:\Users\kimih\Downloads\Baram\Baram\test.jpg
 --webapp--
 
-<> 2025-12-18T020649.200.txt
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer 2db26b33-531b-41c2-ad98-0bb589cb0a01
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817554
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
 
 ###
 
