@@ -1,14 +1,10 @@
 package com.example.Baram.domain.record;
 
-import com.example.Baram.domain.auth.Session;
-import com.example.Baram.domain.auth.SessionRepository;
-import com.example.Baram.domain.feedback.dto.FeedbackResponse;
 import com.example.Baram.domain.record.dto.RecordAnalysisResponse;
 import com.example.Baram.domain.record.dto.RecordResponse;
 import com.example.Baram.domain.record.dto.RecordSubmitRequest;
 import com.example.Baram.domain.user.User;
 
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -18,21 +14,29 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
+/**
+ * 필기 분석 기록의 생성 및 조회를 처리하는 컨트롤러입니다.
+ * 사용자의 필기 이미지를 접수하여 AI 분석을 트리거하고, 저장된 분석 결과를 반환합니다.
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/records")
 public class RecordController {
 
-    private final RecordService recordService;
-
-    // 1. 손글씨 기록 제출 및 AI 분석 시작
+    /**
+     * 사용자의 손글씨 이미지를 제출받아 AI 분석을 시작합니다.
+     * 폰트 정보와 문장 텍스트(JSON) 및 이미지 파일(Multipart)을 함께 수신합니다. [cite: 2025-12-24, 2025-12-25]
+     *
+     * @param user    인증 필터에서 주입된 현재 로그인 사용자 [cite: 2025-12-24]
+     * @param file    사용자가 직접 쓴 필기 이미지 파일
+     * @param request 분석에 필요한 메타데이터 (폰트명, 문장 내용 등)
+     * @return 생성된 기록 ID를 포함한 성공 메시지 [cite: 2025-12-25]
+     */
     @PostMapping(value = "/submit", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> submitRecord(
-            @AuthenticationPrincipal User user, // 인증 객체 직접 수신 [cite: 2025-12-24]
+    public ResponseEntity<String> submitRecord(
+            @AuthenticationPrincipal User user, // 인증 객체 직접 수신
             @RequestPart("file") MultipartFile file,
             @RequestPart("data") RecordSubmitRequest request
     ) {
@@ -49,7 +53,12 @@ public class RecordController {
         }
     }
 
-    // 2. 내 전체 기록 조회 (시큐리티 적용 버전) [cite: 2025-12-24]
+    /**
+     * 현재 로그인한 사용자의 모든 분석 이력을 최신순으로 조회합니다.
+     *
+     * @param user 현재 로그인 사용자
+     * @return 요약된 분석 기록 리스트
+     */
     @GetMapping
     public ResponseEntity<List<RecordResponse>> getMyRecords(@AuthenticationPrincipal User user) {
         if (user == null) {
@@ -58,11 +67,18 @@ public class RecordController {
         return ResponseEntity.ok(recordService.getUserRecords(user.getUserId()));
     }
 
-    // 3. [변경 필요] 특정 기록의 상세 분석 결과 조회
+    /**
+     * 특정 기록에 대한 정밀 분석 결과를 조회합니다.
+     * PostgreSQL의 JSONB 데이터와 자모 분리 이미지 경로를 통합하여 반환합니다.
+     *
+     * @param recordId 조회할 기록의 고유 식별자
+     * @return 상세 분석 데이터 및 세그먼트 이미지 경로
+     */
     @GetMapping("/{recordId}/analysis")
     public ResponseEntity<RecordAnalysisResponse> getRecordAnalysis(@PathVariable Long recordId) {
-        // 기존 FeedbackResponse 대신, RecordDetail과 RecordSegment를 합친 새로운 DTO 반환 필요 [cite: 2025-12-24]
         RecordAnalysisResponse analysis = recordService.getDetailedAnalysis(recordId);
         return ResponseEntity.ok(analysis);
     }
+
+    private final RecordService recordService;
 }

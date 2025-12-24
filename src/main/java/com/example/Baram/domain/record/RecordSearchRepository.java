@@ -1,9 +1,15 @@
 package com.example.Baram.domain.record;
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * 필기 분석 기록에 대한 검색 엔진(Elasticsearch) 전용 레포지토리입니다.
+ * 문장 내용이나 피드백 텍스트를 이용한 고속 전문 검색 기능을 수행합니다.
+ */
+@Repository
 public interface RecordSearchRepository extends ElasticsearchRepository<RecordDocument, String>
 {
     // 1. 유저의 기록 중 특정 단어가 들어간 것 찾기

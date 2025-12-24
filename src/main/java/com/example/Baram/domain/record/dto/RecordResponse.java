@@ -6,6 +6,10 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+/**
+ * 필기 분석 기록의 요약 정보를 전달하는 데이터 전송 객체(DTO)입니다.
+ * 주로 분석 내역 목록 조회 시 사용됩니다.
+ */
 @Getter
 @Builder
 public class RecordResponse {

@@ -10,12 +10,13 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * 애플리케이션의 보안 전반을 설정하는 클래스입니다.
+ */
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-
-    private final SessionAuthenticationFilter sessionAuthenticationFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -31,4 +32,6 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+    private final SessionAuthenticationFilter sessionAuthenticationFilter;
 }

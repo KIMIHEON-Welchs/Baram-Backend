@@ -8,6 +8,10 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
+/**
+ * 사용자의 필기 분석 기록을 관리하는 엔티티입니다.
+ * 분석에 사용된 모델 정보, 원본 이미지, AI 분석 결과 및 최종 점수를 포함합니다.
+ */
 @Entity
 @Getter @Setter
 @NoArgsConstructor
@@ -15,6 +19,14 @@ import java.time.LocalDateTime;
 @Builder
 public class Record
 {
+    /**
+     * 분석이 완료된 후 최종 점수와 상태를 업데이트합니다.
+     * @param finalScore 도출된 최종 점수
+     */
+    public void updateAnalysisResult(Float finalScore) {
+        this.finalScore = finalScore;
+        this.analysisStatus = AnalysisStatus.COMPLETED;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,6 +3,10 @@ package com.example.Baram.domain.record;
 import jakarta.persistence.*;
 import lombok.*;
 
+/**
+ * 분석된 문장의 개별 글자 및 자모 분리 이미지 정보를 저장하는 엔티티입니다.
+ * 문장 내 글자 순서와 각 자모(초/중/종성)별 이미지 파일 경로를 관리합니다.
+ */
 @Entity
 @Getter @Setter
 @NoArgsConstructor
