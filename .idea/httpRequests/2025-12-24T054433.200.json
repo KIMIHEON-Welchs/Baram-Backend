@@ -1,0 +1,51 @@
+[
+  {
+    "recordId": 22,
+    "sentenceContent": "오늘도 행복한 하루 되세요.",
+    "finalScore": 96.96,
+    "submissionDate": "2025-12-24T05:43:23.842135",
+    "imageUrl": "/files/test.jpg"
+  },
+  {
+    "recordId": 21,
+    "sentenceContent": "오늘도 행복한 하루 되세요.",
+    "finalScore": 81.7,
+    "submissionDate": "2025-12-24T05:38:31.572293",
+    "imageUrl": "/files/test.jpg"
+  },
+  {
+    "recordId": 20,
+    "sentenceContent": "오늘도 행복한 하루 되세요.",
+    "finalScore": 86.68,
+    "submissionDate": "2025-12-24T04:46:20.678546",
+    "imageUrl": "/files/test.jpg"
+  },
+  {
+    "recordId": 19,
+    "sentenceContent": "오늘도 행복한 하루 되세요.",
+    "finalScore": 88.77,
+    "submissionDate": "2025-12-24T04:12:06.579978",
+    "imageUrl": "/files/test.jpg"
+  },
+  {
+    "recordId": 18,
+    "sentenceContent": "오늘도 행복한 하루 되세요.",
+    "finalScore": 70.34,
+    "submissionDate": "2025-12-24T04:11:23.245193",
+    "imageUrl": "/files/test.jpg"
+  },
+  {
+    "recordId": 12,
+    "sentenceContent": null,
+    "finalScore": 50.18,
+    "submissionDate": "2025-12-23T03:41:10.639569",
+    "imageUrl": "/files/cd549842-e54b-4e39-b582-96644b42762e_test.jpg"
+  },
+  {
+    "recordId": 11,
+    "sentenceContent": null,
+    "finalScore": 76.19,
+    "submissionDate": "2025-12-23T03:07:08.640869",
+    "imageUrl": "/files/22bb8ed0-bd08-4372-97fd-f86d8982c3e0_test.jpg"
+  }
+]

@@ -1,3 +1,89 @@
+GET http://localhost:8080/api/records/8/feedback
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+###
+
+GET http://localhost:8080/api/records/8/feedback
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+<> 2025-12-24T054437.200.json
+
+###
+
+GET http://localhost:8080/api/records
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+###
+
+GET http://localhost:8080/api/records
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+
+<> 2025-12-24T054433.200.json
+
+###
+
+POST http://localhost:8080/api/records/submit
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 244
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "나눔바른펜",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp--
+
+###
+
+POST http://localhost:8080/api/records/submit
+Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
+Content-Type: multipart/form-data; boundary=webapp
+User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
+content-length: 1817552
+
+--webapp
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "font": "v1_test_model",
+  "sentence": "오늘도 행복한 하루 되세요."
+}
+--webapp
+Content-Disposition: form-data; name="file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
+--webapp--
+
+<> 2025-12-24T054324.200.txt
+
+###
+
 POST http://localhost:8080/api/records/submit
 Authorization: Bearer d2f5ef56-a939-475a-9555-e62711ce4451
 Content-Type: multipart/form-data; boundary=webapp
@@ -890,149 +976,6 @@ Accept-Encoding: br, deflate, gzip, x-gzip
 Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
 
 <> 2025-12-24T032740.200.json
-
-###
-
-POST http://localhost:8080/api/records/submit
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
-content-length: 244
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{
-  "font": "나눔바른펜",
-  "sentence": "오늘도 행복한 하루 되세요."
-}
---webapp--
-
-###
-
-POST http://localhost:8080/api/records/submit
-Authorization: Bearer dcf28580-fd9f-40cc-93a9-32c3788f2b27
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
-content-length: 1817587
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{
-  "font": "나눔바른펜",
-  "sentence": "오늘도 행복한 하루 되세요.",
-  "submissionMethod": "CANVAS"
-}
---webapp
-Content-Disposition: form-data; name="file"; filename="test.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
---webapp--
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-Content-Length: 62
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
-
-{
-  "socialId": "test_social_id_123",
-  "loginType": "KAKAO"
-}
-
-<> 2025-12-24T032702.200.json
-
-###
-
-POST http://localhost:8080/api/records/submit
-Authorization: Bearer 2db26b33-531b-41c2-ad98-0bb589cb0a01
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
-content-length: 1817587
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{
-  "font": "나눔바른펜",
-  "sentence": "오늘도 행복한 하루 되세요.",
-  "submissionMethod": "CANVAS"
-}
---webapp
-Content-Disposition: form-data; name="file"; filename="test.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
---webapp--
-
-###
-
-POST http://localhost:8080/api/records/submit
-Authorization: Bearer 2db26b33-531b-41c2-ad98-0bb589cb0a01
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
-content-length: 1817554
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{
-  "font": "나눔바른펜",
-  "sentence": "오늘도 행복한 하루 되세요."
-}
---webapp
-Content-Disposition: form-data; name="file"; filename="test.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
---webapp--
-
-###
-
-POST http://localhost:8080/api/records/submit
-Authorization: Bearer 2db26b33-531b-41c2-ad98-0bb589cb0a01
-Content-Type: multipart/form-data; boundary=webapp
-User-Agent: IntelliJ HTTP Client/Android Studio Otter | 2025.2.1 Patch 1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-Cookie: JSESSIONID=477E5E68243C967858D5E4A53FE09A9E
-content-length: 1817554
-
---webapp
-Content-Disposition: form-data; name="data"
-Content-Type: application/json
-
-{
-  "font": "나눔바른펜",
-  "sentence": "오늘도 행복한 하루 되세요."
-}
---webapp
-Content-Disposition: form-data; name="file"; filename="test.jpg"
-Content-Type: image/jpeg
-
-< C:\Users\kimih\Downloads\Baram\Baram\test.jpg
---webapp--
 
 ###
 

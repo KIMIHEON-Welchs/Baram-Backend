@@ -3,6 +3,7 @@ package com.example.Baram.domain.record;
 import com.example.Baram.domain.auth.Session;
 import com.example.Baram.domain.auth.SessionRepository;
 import com.example.Baram.domain.feedback.dto.FeedbackResponse;
+import com.example.Baram.domain.record.dto.RecordAnalysisResponse;
 import com.example.Baram.domain.record.dto.RecordResponse;
 import com.example.Baram.domain.record.dto.RecordSubmitRequest;
 import com.example.Baram.domain.user.User;
@@ -24,48 +25,44 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/records")
-public class RecordController
-{
+public class RecordController {
 
-    // 1. 손글씨 기록 제출
+    private final RecordService recordService;
+
+    // 1. 손글씨 기록 제출 및 AI 분석 시작
     @PostMapping(value = "/submit", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> submitRecord(
-            @AuthenticationPrincipal User user,
+            @AuthenticationPrincipal User user, // 인증 객체 직접 수신 [cite: 2025-12-24]
             @RequestPart("file") MultipartFile file,
             @RequestPart("data") RecordSubmitRequest request
     ) {
         if (user == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("인증 정보가 없습니다.");
         }
-        Long userId = user.getUserId();
 
-        // 인자 순서: userId, DTO, 파일명 [cite: 2025-12-23]
-        Long recordId = recordService.submitRecord(userId, request, file.getOriginalFilename());
-        return ResponseEntity.ok("기록 저장 성공! ID: " + recordId);
+        try {
+            // 서비스의 통합 제출 메서드 호출 [cite: 2025-12-24]
+            Long recordId = recordService.submitRecord(user.getUserId(), request, file, file.getOriginalFilename());
+            return ResponseEntity.ok("기록 제출 및 AI 분석 완료! ID: " + recordId);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("분석 중 오류 발생: " + e.getMessage());
+        }
     }
 
-    // 2. 내 전체 기록 조회 (요약 리스트)
+    // 2. 내 전체 기록 조회 (시큐리티 적용 버전) [cite: 2025-12-24]
     @GetMapping
-    public ResponseEntity<?> getMyRecords(@RequestHeader("Authorization") String bearerToken) {
-        String token = bearerToken.substring(7);
-
-        Long userId = sessionRepository.findBySessionToken(token)
-                .map(Session::getUserId)
-                .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 세션토큰입니다."));
-
-        List<RecordResponse> records = recordService.getUserRecords(userId);
-        return ResponseEntity.ok(records);
+    public ResponseEntity<List<RecordResponse>> getMyRecords(@AuthenticationPrincipal User user) {
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return ResponseEntity.ok(recordService.getUserRecords(user.getUserId()));
     }
 
-    // 2. 특정 기록의 상세 피드백 조회
-// GET: localhost:8080/api/records/{recordId}/feedback
-    @GetMapping("/{recordId}/feedback")
-    public ResponseEntity<FeedbackResponse> getRecordFeedback(@PathVariable Long recordId) {
-        FeedbackResponse feedback = recordService.getFeedbackByRecordId(recordId);
-        return ResponseEntity.ok(feedback);
+    // 3. [변경 필요] 특정 기록의 상세 분석 결과 조회
+    @GetMapping("/{recordId}/analysis")
+    public ResponseEntity<RecordAnalysisResponse> getRecordAnalysis(@PathVariable Long recordId) {
+        // 기존 FeedbackResponse 대신, RecordDetail과 RecordSegment를 합친 새로운 DTO 반환 필요 [cite: 2025-12-24]
+        RecordAnalysisResponse analysis = recordService.getDetailedAnalysis(recordId);
+        return ResponseEntity.ok(analysis);
     }
-
-
-    private final RecordService recordService;
-    private final SessionRepository sessionRepository;
 }
